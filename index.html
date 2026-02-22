@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岁月 - 过年诗词</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "STSong", "SimSun", "Noto Serif SC", serif;
+            background-color: #fdf6ec;
+            color: #5a3e2b;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 48px 16px 32px;
+            background: linear-gradient(180deg, #c0392b 0%, #e74c3c 100%);
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.85;
+            letter-spacing: 0.15em;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 16px 64px;
+        }
+
+        .poem-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 32px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #c0392b;
+        }
+
+        .poem-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            color: #c0392b;
+        }
+
+        .poem-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .poem-body {
+            font-size: 1.15rem;
+            line-height: 2.2;
+            letter-spacing: 0.1em;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 16px;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .poem-card {
+                padding: 24px 16px;
+            }
+
+            .poem-body {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>岁月诗词</h1>
+        <p>品读过年诗词，感受千年年味</p>
+    </header>
+
+    <main id="poems"></main>
+
+    <footer>
+        <p>岁月 &copy; 2026 — 以诗词记录中国人的过年情感</p>
+    </footer>
+
+    <script>
+        var poems = [
+            {
+                title: "元日",
+                dynasty: "宋",
+                author: "王安石",
+                content: "爆竹声中一岁除，春风送暖入屠苏。\n千门万户曈曈日，总把新桃换旧符。"
+            },
+            {
+                title: "除夜作",
+                dynasty: "唐",
+                author: "高适",
+                content: "旅馆寒灯独不眠，客心何事转凄然。\n故乡今夜思千里，霜鬓明朝又一年。"
+            },
+            {
+                title: "除夜",
+                dynasty: "宋",
+                author: "文天祥",
+                content: "乾坤空落落，岁月去堂堂。\n末路惊风雨，穷边饱雪霜。\n命随年欲尽，身与世俱忘。\n无复屠苏梦，挑灯夜未央。"
+            }
+        ];
+
+        function renderPoems() {
+            var container = document.getElementById("poems");
+            for (var i = 0; i < poems.length; i++) {
+                var p = poems[i];
+                var article = document.createElement("article");
+                article.className = "poem-card";
+
+                var h2 = document.createElement("h2");
+                h2.textContent = p.title;
+
+                var meta = document.createElement("div");
+                meta.className = "poem-meta";
+                meta.textContent = "\u3014" + p.dynasty + "\u3015" + p.author;
+
+                var body = document.createElement("div");
+                body.className = "poem-body";
+                body.textContent = p.content;
+
+                article.appendChild(h2);
+                article.appendChild(meta);
+                article.appendChild(body);
+                container.appendChild(article);
+            }
+        }
+
+        renderPoems();
+    </script>
+</body>
+</html>
